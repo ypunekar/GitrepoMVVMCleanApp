@@ -1,21 +1,27 @@
 package com.example.cleanarchpoc.presentation.feed
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Toast
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProviders
 import com.example.gitrepomvvmcleanapp.R
-import com.example.gitrepomvvmcleanapp.domain.model.Repositories
+import com.example.gitrepomvvmcleanapp.domain.model.repositorylist.Repositories
 import com.example.gitrepomvvmcleanapp.presentation.base.BaseActivity
 import javax.inject.Inject
 
 
-class FeedActivity : BaseActivity<FeedViewModel>(R.layout.activity_main) {
+class FeedActivity : BaseActivity<FeedViewModel>() {
 
     @Inject
     lateinit var factory: FeedViewModelFactory
@@ -30,8 +36,39 @@ class FeedActivity : BaseActivity<FeedViewModel>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         daggerInjector.createFeedComponent().inject(this)
-        super.onCreate(savedInstanceState)
-        viewModel.loadCountries()
+       super.onCreate(savedInstanceState)
+        setContent {
+
+            val recipes = viewModel.getCountrisLiveData().value
+
+            for(recipe in recipes){
+                Log.d(TAG, "RECIPE: ${recipe.projectName}")
+            }
+
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    text = "RecipeList",
+                    style = TextStyle(
+                        fontSize = TextUnit.Companion.Unspecified
+                    )
+                )
+                Text(
+                    text = "RecipeList",
+                    style = TextStyle(
+                        fontSize = TextUnit.Companion.Unspecified
+                    )
+                )
+                Spacer(modifier = Modifier.padding(10.dp))
+                Button(
+                    onClick = {
+                       viewModel.loadCountries()
+                    }
+                ) {
+                    Text(text = "PERFORM SEARCH")
+                }
+            }
+        }
+       // viewModel.loadCountries()
 
         observeViewModel()
        // setupViewListeners()
@@ -39,9 +76,7 @@ class FeedActivity : BaseActivity<FeedViewModel>(R.layout.activity_main) {
 
     private fun observeViewModel() {
 
-        viewModel.getCountrisLiveData().observe { remoteRepo ->
-           // DataProvider.repoList= remoteRepo as MutableList<Repositories>
-        }
+
         viewModel.isShowProgressBarLiveData.observe { isShow ->
             when (isShow) {
                 true -> {

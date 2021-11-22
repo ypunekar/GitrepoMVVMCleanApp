@@ -1,6 +1,4 @@
-package com.example.gitrepomvvmcleanapp.domain.model
-
-import com.google.gson.annotations.SerializedName
+package com.example.gitrepomvvmcleanapp.domain.model.repositorylist
 
 
 data class Owner( val login : String,

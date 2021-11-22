@@ -14,7 +14,7 @@ abstract class BaseViewModel(
         get() = dispatchers.getMain() + SupervisorJob()
 
     fun execute(job: suspend () -> Unit) = launch {
-        withContext(dispatchers.getIO()) { job.invoke() }
+        withContext(dispatchers.getIO()) { job() }
     }
 
 }

@@ -9,9 +9,7 @@ import androidx.lifecycle.Observer
 import com.example.cleanarchpoc.presentation.di.DaggerInjector
 
 
-abstract class BaseActivity<VM : BaseViewModel>(
-    @LayoutRes private val resId: Int
-) : AppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel>() : AppCompatActivity() {
 
     protected val daggerInjector: DaggerInjector by lazy { application as DaggerInjector }
 
@@ -22,7 +20,6 @@ abstract class BaseActivity<VM : BaseViewModel>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = createViewModel()
-        setContentView(resId)
     }
 
     fun <T> LiveData<T>.observe(observer: (T) -> Unit) {

@@ -21,7 +21,11 @@ class DataModule {
                             ): RepositoriesRepository {
         return RepositoriesRepositoryImpl(countriesRemote)
     }
-
+    @Provides
+    @Singleton
+    fun provideUserString() :String {
+        return String()
+    }
     @Provides
     @Singleton
     fun provideCountriesRemoteDataSource(countriesApi: RepositoryApi): RepositoryDataSource.Remote {
