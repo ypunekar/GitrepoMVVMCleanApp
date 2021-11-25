@@ -1,4 +1,4 @@
-package com.example.cleanarchpoc.domain.usecase
+package com.example.gitrepomvvmcleanapp.domain.usecase
 
 import android.net.Uri
 import com.example.cleanarchpoc.domain.util.Result
@@ -7,7 +7,7 @@ import com.example.gitrepomvvmcleanapp.domain.model.repositorylist.Repositories
 import com.example.gitrepomvvmcleanapp.domain.repository.RepositoriesRepository
 
 
-open class GetCountriesUseCase( val repositoriesRepository: RepositoriesRepository) {
+open class GetRepositoriesUseCase( val repositoriesRepository: RepositoriesRepository) {
 
     suspend fun execute(): Result<List<Repositories>> {
         return repositoriesRepository.getRepository()

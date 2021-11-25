@@ -1,6 +1,6 @@
 package com.example.gitrepomvvmcleanapp.data.api
 
-import com.example.example.RemoteRepositoryDetail
+import com.example.gitrepomvvmcleanapp.data.model.repositorydetail.RemoteRepositoryDetail
 import com.example.gitrepomvvmcleanapp.data.model.repositorylist.RepositoryResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
