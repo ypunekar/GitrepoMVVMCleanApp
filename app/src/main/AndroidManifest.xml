@@ -15,10 +15,10 @@
         android:theme="@style/Theme.GitRepoMVVMCleanApp">
         <activity
             android:name=".presentation.detail.RepositoryDetailActivity"
-            android:exported="true" >
+            android:exported="false" >
         </activity>>
         <activity
-            android:name=".presentation.repolist.RepositoryListActivity"
+            android:name="com.example.gitrepomvvmcleanapp.presentation.repolist.RepositoryListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,5 +26,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

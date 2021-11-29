@@ -9,12 +9,11 @@ import com.example.gitrepomvvmcleanapp.presentation.detail.RepositoryDetailViewM
 
 
 class RepositoryDetailViewModelFactory(
-    private val getRepositoriesUseCase: GetRepositoriesUseCase,
-    private val dispatchers: DispatchersProvider
+    private val getRepositoriesUseCase: GetRepositoriesUseCase,var dispatchers: DispatchersProvider
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return RepositoryDetailViewModel(getRepositoriesUseCase, dispatchers) as T
+        return RepositoryDetailViewModel(getRepositoriesUseCase,dispatchers) as T
     }
 
 }

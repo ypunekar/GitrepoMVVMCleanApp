@@ -9,8 +9,7 @@ import com.example.gitrepomvvmcleanapp.domain.usecase.GetRepositoriesUseCase
 import com.example.gitrepomvvmcleanapp.presentation.base.BaseViewModel
 
 class RepositoryDetailViewModel constructor(
-    private val getRepositoriesUseCase: GetRepositoriesUseCase,
-    dispatchers: DispatchersProvider
+    private val getRepositoriesUseCase: GetRepositoriesUseCase,dispatchers: DispatchersProvider
 ) : BaseViewModel(dispatchers) {
     val repositoryDetail: MutableState<RepositoryDetail?> = mutableStateOf(null)
 

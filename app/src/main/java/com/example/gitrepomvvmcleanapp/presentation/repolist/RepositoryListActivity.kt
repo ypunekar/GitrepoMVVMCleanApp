@@ -44,7 +44,7 @@ class RepositoryListActivity : BaseActivity<RepositoryListViewModel>() {
             for (recipe in repositories) {
                 Log.d(TAG, "RECIPE: ${recipe.projectName}")
             }
-            AllRepositories(repositories)
+            AllRepositories(repositories,viewModel)
 
         }
 
@@ -53,7 +53,7 @@ class RepositoryListActivity : BaseActivity<RepositoryListViewModel>() {
 }
 
 @Composable
-fun AllRepositories(repositories: List<Repositories>){
+fun AllRepositories(repositories: List<Repositories>,repositoryListViewMode:RepositoryListViewModel){
     Scaffold(
     ) {
         LazyColumn(

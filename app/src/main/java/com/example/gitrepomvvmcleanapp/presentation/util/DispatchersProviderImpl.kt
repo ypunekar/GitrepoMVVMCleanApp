@@ -1,9 +1,9 @@
-package com.aliasadi.clean.presentation.util
+package com.example.gitrepomvvmcleanapp.presentation.util
 
+import com.aliasadi.clean.presentation.util.DispatchersProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainCoroutineDispatcher
-
 class DispatchersProviderImpl : DispatchersProvider {
 
     override fun getMain(): MainCoroutineDispatcher {

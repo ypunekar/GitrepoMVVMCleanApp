@@ -6,8 +6,7 @@ import kotlinx.coroutines.*
 import com.aliasadi.clean.presentation.util.DispatchersProvider
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseViewModel(
-        private val dispatchers: DispatchersProvider
+abstract class BaseViewModel(var dispatchers:DispatchersProvider
 ) : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext

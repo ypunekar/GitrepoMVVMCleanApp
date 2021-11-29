@@ -4,7 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import com.aliasadi.clean.presentation.util.DispatchersProvider
-import com.aliasadi.clean.presentation.util.DispatchersProviderImpl
+import com.example.gitrepomvvmcleanapp.presentation.util.DispatchersProviderImpl
 import com.example.gitrepomvvmcleanapp.data.util.DiskExecutor
 import javax.inject.Singleton
 
